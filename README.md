@@ -1,4 +1,4 @@
-# API-Sentiment-Analysis
+# API Sentiment Analysis
 A RESTFul API for sentiment analysis in Spanish.
 
 ## How to run
