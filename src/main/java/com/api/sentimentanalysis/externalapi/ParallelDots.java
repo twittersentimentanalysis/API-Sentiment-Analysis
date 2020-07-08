@@ -1,14 +1,10 @@
 package com.api.sentimentanalysis.externalapi;
 
 
-import java.io.File;
 import java.io.FileOutputStream;
-import java.net.SocketTimeoutException;
 import java.security.KeyStore;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-import java.util.concurrent.TimeUnit;
-import javax.activation.MimetypesFileTypeMap;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLException;
@@ -20,13 +16,8 @@ import javax.net.ssl.X509TrustManager;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
-import org.json.simple.JSONObject;
-import org.json.simple.JSONArray;
-import org.json.simple.parser.JSONParser;
 
 
 public class ParallelDots implements EmotionAnalysisAPI
