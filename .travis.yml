@@ -9,9 +9,9 @@ branches:
   only:
     - staging
 
-#addons:
-#  sonarcloud:
-#    organization: "ariadnadearriba"
+addons:
+  sonarcloud:
+    organization: "ariadnadearriba"
 #    token:
 #      secure: ""
 env:
