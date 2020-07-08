@@ -2,10 +2,9 @@ package com.api.sentimentanalysis.controller;
 
 import com.api.sentimentanalysis.externalapi.EmotionAnalysisAPI;
 import com.api.sentimentanalysis.externalapi.EmotionAnalysisAPIFactory;
-import com.api.sentimentanalysis.externalapi.ParallelDots;
+import com.api.sentimentanalysis.model.Text;
 import io.swagger.annotations.*;
 import org.json.simple.JSONObject;
-import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 
 import org.json.simple.parser.ParseException;
@@ -13,7 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import springfox.documentation.spring.web.json.Json;
 
 @RestController
 @Api(tags = "Análisis de emociones")
@@ -21,13 +19,7 @@ import springfox.documentation.spring.web.json.Json;
 public class MainController
 {
     JSONParser parser = new JSONParser();
-    // APIKey = "hMHL3owGxJxbn6h6RQtCEyscYchzejmhVnPkdKoNax8";
     EmotionAnalysisAPI emotionAnalysisAPI = EmotionAnalysisAPIFactory.getEmotionAnalysisAPI("ParallelDots", "hMHL3owGxJxbn6h6RQtCEyscYchzejmhVnPkdKoNax8");
-
-    public MainController() throws ParseException
-    {
-    }
-
 
     /*  ====================
             Method: POST
@@ -43,21 +35,15 @@ public class MainController
             @ApiResponse(code = 401, message = "Unauthorized"),             @ApiResponse(code = 403, message = "Forbidden"),
             @ApiResponse(code = 429, message = "Too Many Requests"),        @ApiResponse(code = 406, message = "Not Acceptable")
         })
-    public ResponseEntity getEmotion(@ApiParam( name = "Texto", value = "Texto a analizar (versión de prueba - sólo para texto en inglés)", required = true,
-                                                example = "This song is incredible",
-                                                examples = @Example(value = {
-                                                    @ExampleProperty
-                                                        ("In a statement issued with France and UN chief António Guterres on Saturday, China committed to “update” " +
-                                                        "its climate target “in a manner representing a progression beyond the current one”.  It also vowed to publish " +
-                                                        "a long term decarbonisation strategy by next year.")
-                                                }))
-                                     @RequestBody String text) throws Exception
+    public ResponseEntity<String> getEmotion(@ApiParam( name = "Texto", required = true,
+                                                value = "Texto a analizar (versión de prueba - sólo para texto en inglés)")
+                                     @RequestBody Text text) throws Exception
     {
-        String emotion_multilang = emotionAnalysisAPI.emotion(text);
+        String emotion_multilang = emotionAnalysisAPI.emotion(text.getText());
 
         JSONObject jsonText = (JSONObject)parser.parse(emotion_multilang);
-        Integer code = jsonText.get("code") == null ? 200 : Integer.parseInt(jsonText.get("code").toString());
+        int code = jsonText.get("code") == null ? 200 : Integer.parseInt(jsonText.get("code").toString());
 
-        return new ResponseEntity<String>(emotion_multilang, HttpStatus.valueOf(code));
+        return new ResponseEntity<>(emotion_multilang, HttpStatus.valueOf(code));
     }
 }
