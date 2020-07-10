@@ -12,10 +12,10 @@ branches:
 addons:
   sonarcloud:
     organization: "ariadnadearriba"
-#    token:
-#      secure: ""
+    token:
+      secure: "s1GcdZqYJNcV0KaW/JUJb0wq5RimCj+ksI6+FmZtu8934Md1oxIq0sNVXi2KuHdeC8CGutkCKb4s2M6ezN4pmA75nb+3jpYsE85M5b4mVS1V+0Wp/PJ0oeqLZCjRw0uBVAJn0qVkeyTRaWe+Com5tnR4ETYwpLm15QK4scUfuqyUc/INy+wpjJFNeNgc2eGjJD33av3jTEyTv8Tjlqk0g5sVOGy36D9DxZRuod7iakCGpkzZTL05unCtMoo59nupLU5l8f0V60jwe+l/L6xEKCkbpwTUslQYWqiU/FotcNm8dlggKWsXF3wPSmeXwu0Mq8OYifMcDtfGHspcW/yDXXVa2DyOjn/cLjp4CBo6XCEMOmFc9UATHJyhuoTURARy5Z6dt7yvNT6OflNyZ7Vk26MgjKMPgjFCwtURfTC4pjk5l5z+IbNOD2mvhl1nixqjN/tuxm8hKxKPtKmhA0hEVtuS7ntVGEgBuPoafWic+59T2N6zrcAhUtEejjpyZm2wOxHA8Pgvq9yOd3jjr3YZ/lFRAyJKmf1CXkGw5g9DNES7ER3EgN3xMsJJDPHdzy5ondXQo/GkEWuFhaNfx5bLTHNjUiu2DG95TrQ6YiNs1v6B0PqiGFBJMhYSfdazm1EV3209GJSfpeQC9E4HMd3gJ70phrAVmWg6LgzIWOH1ztw="
 env:
-  secure: "8mOuFW5kfQBI6Lx13hYoWTjE4N791mn6"
+  secure: "s1GcdZqYJNcV0KaW/JUJb0wq5RimCj+ksI6+FmZtu8934Md1oxIq0sNVXi2KuHdeC8CGutkCKb4s2M6ezN4pmA75nb+3jpYsE85M5b4mVS1V+0Wp/PJ0oeqLZCjRw0uBVAJn0qVkeyTRaWe+Com5tnR4ETYwpLm15QK4scUfuqyUc/INy+wpjJFNeNgc2eGjJD33av3jTEyTv8Tjlqk0g5sVOGy36D9DxZRuod7iakCGpkzZTL05unCtMoo59nupLU5l8f0V60jwe+l/L6xEKCkbpwTUslQYWqiU/FotcNm8dlggKWsXF3wPSmeXwu0Mq8OYifMcDtfGHspcW/yDXXVa2DyOjn/cLjp4CBo6XCEMOmFc9UATHJyhuoTURARy5Z6dt7yvNT6OflNyZ7Vk26MgjKMPgjFCwtURfTC4pjk5l5z+IbNOD2mvhl1nixqjN/tuxm8hKxKPtKmhA0hEVtuS7ntVGEgBuPoafWic+59T2N6zrcAhUtEejjpyZm2wOxHA8Pgvq9yOd3jjr3YZ/lFRAyJKmf1CXkGw5g9DNES7ER3EgN3xMsJJDPHdzy5ondXQo/GkEWuFhaNfx5bLTHNjUiu2DG95TrQ6YiNs1v6B0PqiGFBJMhYSfdazm1EV3209GJSfpeQC9E4HMd3gJ70phrAVmWg6LgzIWOH1ztw="
 
 script:
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=ariadnadearriba_API-Sentiment-Analysis -Dsonar.branch.name=staging
@@ -23,3 +23,4 @@ script:
 after_success:
   - chmod a+x automerge
   - BRANCHES_TO_MERGE_REGEX='staging' BRANCH_TO_MERGE_INTO=development GITHUB_REPO=aridearriba/API-Sentiment-Analysis ./automerge
+
