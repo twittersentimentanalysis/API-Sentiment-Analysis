@@ -1,4 +1,6 @@
 # API Sentiment Analysis
+[![Build status](https://travis-ci.com/ariadnadearriba/API-Sentiment-Analysis.svg?branch=staging)](https://travis-ci.com/ariadnadearriba/API-Sentiment-Analysis)
+
 A RESTFul API for Sentiment Analysis in Spanish.
 
 ## How to run
