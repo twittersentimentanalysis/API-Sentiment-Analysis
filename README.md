@@ -1,5 +1,5 @@
 # API Sentiment Analysis
-A RESTFul API for sentiment analysis in Spanish.
+A RESTFul API for Sentiment Analysis in Spanish.
 
 ## How to run
 1. Clone this project to a local folder
