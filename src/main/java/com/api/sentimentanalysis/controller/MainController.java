@@ -7,7 +7,6 @@ import io.swagger.annotations.*;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import org.json.simple.parser.ParseException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -39,11 +38,11 @@ public class MainController
                                                 value = "Texto a analizar (versión de prueba - sólo para texto en inglés)")
                                      @RequestBody Text text) throws Exception
     {
-        String emotion_multilang = emotionAnalysisAPI.emotion(text.getText());
+        String emotion = emotionAnalysisAPI.emotion(text.getTextToAnalyze());
 
-        JSONObject jsonText = (JSONObject)parser.parse(emotion_multilang);
+        JSONObject jsonText = (JSONObject)parser.parse(emotion);
         int code = jsonText.get("code") == null ? 200 : Integer.parseInt(jsonText.get("code").toString());
 
-        return new ResponseEntity<>(emotion_multilang, HttpStatus.valueOf(code));
+        return new ResponseEntity<>(emotion, HttpStatus.valueOf(code));
     }
 }
