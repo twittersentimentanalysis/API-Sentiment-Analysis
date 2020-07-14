@@ -1,14 +1,13 @@
 package com.api.sentimentanalysis;
 
 import com.api.sentimentanalysis.externalapi.ParallelDots;
+import com.api.sentimentanalysis.model.Text;
 import org.junit.Assert;
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
-class ParallelDotsTest
+public class ParallelDotsTest
 {
     @Test
     void constructorTest()
@@ -34,6 +33,13 @@ class ParallelDotsTest
         String expected = "{\"emotion\":{\"happy\":0.999943,\"sad\":0.000003,\"angry\":0.000001,\"fear\":0.000012,\"excited\":0.000022,\"indifferent\":0.000018}}";
 
         assertEquals(emotion, expected);
+    }
+
+    @Test
+    void getEmotionTest() throws Exception
+    {
+        Text text = new Text();
+        text.setTextToAnalyze("text");
     }
 
     @Test
