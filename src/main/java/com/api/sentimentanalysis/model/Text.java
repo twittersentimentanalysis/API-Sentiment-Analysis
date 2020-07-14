@@ -10,15 +10,15 @@ public class Text
                         example = "In a statement issued with France and UN chief António Guterres on Saturday, China committed to “update” " +
                                     "its climate target “in a manner representing a progression beyond the current one”.  It also vowed to publish " +
                                     "a long term decarbonisation strategy by next year.")
-    String text;
+    String textToAnalyze;
 
-    public String getText()
+    public String getTextToAnalyze()
     {
-        return text;
+        return textToAnalyze;
     }
 
-    public void setText(String text)
+    public void setTextToAnalyze(String text)
     {
-        this.text = text;
+        this.textToAnalyze = text;
     }
 }

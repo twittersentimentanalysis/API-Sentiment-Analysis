@@ -22,12 +22,12 @@ import okhttp3.RequestBody;
 
 public class ParallelDots implements EmotionAnalysisAPI
 {
-    private String api_key;
+    private String apiKey;
     private String host = "https://apis.paralleldots.com/v5/";
 
-    public ParallelDots(String api_key)
+    public ParallelDots(String apiKey)
     {
-        this.api_key = api_key;
+        this.apiKey = apiKey;
         try
         {
             setUpCert("apis.paralleldots.com");
@@ -46,11 +46,11 @@ public class ParallelDots implements EmotionAnalysisAPI
         {
             socket.startHandshake();
             socket.close();
-            //System.out.println("No errors, certificate is already trusted");
+            System.out.println("No errors, certificate is already trusted");
             return;
         } catch (SSLException e)
         {
-            //System.out.println("cert likely not found in keystore, will pull cert...");
+            System.out.println("cert likely not found in keystore, will pull cert...");
         }
 
         KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
@@ -120,13 +120,13 @@ public class ParallelDots implements EmotionAnalysisAPI
     @Override
     public String emotion(String text) throws Exception
     {
-        if (this.api_key != null)
+        if (this.apiKey != null)
         {
             String url = host + "emotion";
             OkHttpClient client = new OkHttpClient();
             RequestBody requestBody = new MultipartBody.Builder()
                     .setType(MultipartBody.FORM)
-                    .addFormDataPart("api_key", this.api_key)
+                    .addFormDataPart("api_key", this.apiKey)
                     .addFormDataPart("text", text)
                     .addFormDataPart("lang_code", "en")         // change "en" to "es" for spanish analysis
                     .build();
