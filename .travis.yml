@@ -18,7 +18,7 @@ before_install:
   - chmod +x mvnw
 
 script:
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=ariadnadearriba_API-Sentiment-Analysis -Dsonar.branch.name=staging
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=ariadnadearriba_API-Sentiment-Analysis -Dsonar.branch.name=staging -Dsonar.branch.name=development
 
 after_success:
   - chmod a+x automerge
