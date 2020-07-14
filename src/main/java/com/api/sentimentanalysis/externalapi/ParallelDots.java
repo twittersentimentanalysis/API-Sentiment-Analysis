@@ -33,15 +33,14 @@ public class ParallelDots implements EmotionAnalysisAPI
             setUpCert("apis.paralleldots.com");
         } catch (Exception ex)
         {
-            System.out.println(ex.toString());
         }
     }
 
     private void setUpCert(String hostname) throws Exception
     {
         SSLSocketFactory factory = HttpsURLConnection.getDefaultSSLSocketFactory();
-
         SSLSocket socket = (SSLSocket) factory.createSocket(hostname, 443);
+
         try
         {
             socket.startHandshake();
@@ -139,7 +138,7 @@ public class ParallelDots implements EmotionAnalysisAPI
             return response.body().string();
         } else
         {
-            return "{ \"Error\": \"API key does not exist\" }";
+            throw new NullPointerException("No api-key provided");
         }
     }
 }
