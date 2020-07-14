@@ -10,21 +10,21 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ParallelDotsTest
 {
     @Test
-    void constructorTest()
+    public void constructorTest()
     {
         ParallelDots parallelDots = new ParallelDots("hMHL3owGxJxbn6h6RQtCEyscYchzejmhVnPkdKoNax8");
         Assert.assertTrue(parallelDots instanceof ParallelDots);
     }
 
     @Test
-    void setUpCertTest()
+    public void setUpCertTest()
     {
         String apiKey = "hMHL3owGxJxbn6h6RQtCEyscYchzejmhVnPkdKoNax8";
         assertDoesNotThrow(() -> new ParallelDots(apiKey));
     }
 
     @Test
-    void emotionTest() throws Exception
+    public void emotionTest() throws Exception
     {
         ParallelDots parallelDots = new ParallelDots("hMHL3owGxJxbn6h6RQtCEyscYchzejmhVnPkdKoNax8");
         String text = "I am trying to imagine you with a personality";
@@ -36,14 +36,14 @@ public class ParallelDotsTest
     }
 
     @Test
-    void getEmotionTest() throws Exception
+    public void getEmotionTest() throws Exception
     {
         Text text = new Text();
         text.setTextToAnalyze("text");
     }
 
     @Test
-    void emotionExceptionTest()
+    public void emotionExceptionTest()
     {
         ParallelDots parallelDots = new ParallelDots(null);
         assertThrows(NullPointerException.class, () -> parallelDots.emotion("Text to analyze"));

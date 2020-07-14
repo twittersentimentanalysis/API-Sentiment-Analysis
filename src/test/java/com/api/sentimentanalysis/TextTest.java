@@ -8,7 +8,7 @@ import org.junit.Test;
 public class TextTest
 {
     @Test
-    void setTextTest()
+    public void setTextTest()
     {
         Text text = new Text();
         text.setTextToAnalyze("hola");
@@ -16,7 +16,7 @@ public class TextTest
     }
 
     @Test
-    void getTextTest()
+    public void getTextTest()
     {
         Text text = new Text();
         text.setTextToAnalyze("hola");
