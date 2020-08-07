@@ -1,4 +1,4 @@
-package com.api.sentimentanalysis.externalapi;
+package com.api.sentimentanalysis.externalapi.emotion;
 
 
 import java.io.FileOutputStream;

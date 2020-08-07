@@ -1,7 +1,7 @@
 package com.api.sentimentanalysis;
 
-import com.api.sentimentanalysis.externalapi.ParallelDots;
-import com.api.sentimentanalysis.model.Text;
+import com.api.sentimentanalysis.externalapi.emotion.ParallelDots;
+import com.api.sentimentanalysis.model.TextToAnalyze;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -38,8 +38,8 @@ public class ParallelDotsTest
     @Test
     public void getEmotionTest() throws Exception
     {
-        Text text = new Text();
-        text.setTextToAnalyze("text");
+        TextToAnalyze text = new TextToAnalyze();
+        text.setText("text");
     }
 
     @Test
