@@ -27,8 +27,7 @@ public class SwaggerConfig
                 .paths(PathSelectors.any())
                 .paths(Predicates.not(PathSelectors.regex("/error.*")))
                 .build()
-                .apiInfo(apiInfo())
-                .securitySchemes(Arrays.asList(apiKey()));
+                .apiInfo(apiInfo());
     }
 
     private ApiInfo apiInfo()
@@ -42,7 +41,4 @@ public class SwaggerConfig
                 .build();
     }
 
-    private ApiKey apiKey() {
-        return new ApiKey("api-key", "Authorization", "header");
-    }
 }

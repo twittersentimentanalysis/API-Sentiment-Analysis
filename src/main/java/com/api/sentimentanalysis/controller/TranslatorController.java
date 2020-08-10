@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 public class TranslatorController
 {
     JSONParser parser = new JSONParser();
-    // EmotionAnalysisAPI emotionAnalysisAPI = EmotionAnalysisAPIFactory.getEmotionAnalysisAPI("ParallelDots", "hMHL3owGxJxbn6h6RQtCEyscYchzejmhVnPkdKoNax8");
 
     /*  ====================
             Method: POST

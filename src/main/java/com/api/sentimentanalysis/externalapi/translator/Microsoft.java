@@ -30,8 +30,12 @@ public class Microsoft implements TranslatorAPI
         OkHttpClient client = new OkHttpClient();
         MediaType mediaType = MediaType.parse("application/json");
 
-        RequestBody body = RequestBody.create(mediaType,
-                "[{\n\t\"Text\": \"Welcome to Microsoft Translator. Guess how many languages I speak!\"\n}]");
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("Text", text);
+        jsonArray.add(jsonObject);
+
+        RequestBody body = RequestBody.create(jsonArray.toString(), mediaType);
 
         Request request = new Request.Builder()
                 .url(url).post(body)
