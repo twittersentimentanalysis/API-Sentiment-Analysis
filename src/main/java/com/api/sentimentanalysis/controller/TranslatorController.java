@@ -2,7 +2,8 @@ package com.api.sentimentanalysis.controller;
 
 import com.api.sentimentanalysis.externalapi.translator.TranslatorAPI;
 import com.api.sentimentanalysis.externalapi.translator.TranslatorAPIFactory;
-import com.api.sentimentanalysis.model.TextToAnalyze;
+import com.api.sentimentanalysis.model.Lang;
+import com.api.sentimentanalysis.model.TextToTranslate;
 import io.swagger.annotations.*;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -34,12 +35,12 @@ public class TranslatorController
                     @ApiResponse(code = 429, message = "Too Many Requests"),        @ApiResponse(code = 406, message = "Not Acceptable")
             })
     public ResponseEntity<String> translate(@ApiParam(name = "Texto", required = true, value = "Texto a traducir")
-                                             @RequestBody TextToAnalyze text,
+                                             @RequestBody TextToTranslate text,
                                              @RequestHeader(name="Authorization",required = true) String token,
                                              @RequestParam Translators translator) throws Exception
     {
         TranslatorAPI translatorAPI = TranslatorAPIFactory.getTranslatorAPI(translator.name(), token);
-        String translation = translatorAPI.translate(text.getText(), "en", "es");
+        String translation = translatorAPI.translate(text.getText(), text.getLanguage().getFrom(), text.getLanguage().getTo());
 
         JSONObject jsonText = (JSONObject)parser.parse(translation);
         int code = jsonText.get("code") == null ? 200 : Integer.parseInt(jsonText.get("code").toString());
