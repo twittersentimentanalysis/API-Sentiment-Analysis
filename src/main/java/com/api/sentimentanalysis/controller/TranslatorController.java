@@ -2,16 +2,22 @@ package com.api.sentimentanalysis.controller;
 
 import com.api.sentimentanalysis.externalapi.translator.TranslatorAPI;
 import com.api.sentimentanalysis.externalapi.translator.TranslatorAPIFactory;
-import com.api.sentimentanalysis.model.Lang;
 import com.api.sentimentanalysis.model.TextToTranslate;
 import io.swagger.annotations.*;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+
+/** Controller for /translator endpoint in sentiment analysis API.
+ *
+ * @author Ariadna de Arriba
+ */
 @RestController
 @Api(tags = "Traductor")
 @RequestMapping("/api")
@@ -19,11 +25,15 @@ public class TranslatorController
 {
     JSONParser parser = new JSONParser();
 
-    /*  ====================
-            Method: POST
-        ====================
-    */
-    /*  Translate a block of text */
+    /** POST - Translate a block of text.
+     *
+     * @param text Text to translate
+     * @param token Bearer token for authorization.
+     * @param translator Translator for sentiment analysis.
+     * @return Returns a ResponseEntity that contains the result of calling this POST method.
+     * @throws ParseException {@link ParseException caused parsing the json.}
+     * @throws IOException {@link IOException caused by an error in the API call. }
+     */
     @PostMapping(value = "/translator", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Obtener la traducción de un texto",
             notes = "Devuelve un json que contiene el texto traducido")
@@ -37,7 +47,7 @@ public class TranslatorController
     public ResponseEntity<String> translate(@ApiParam(name = "Texto", required = true, value = "Texto a traducir")
                                              @RequestBody TextToTranslate text,
                                              @RequestHeader(name="Authorization",required = true) String token,
-                                             @RequestParam Translators translator) throws Exception
+                                             @RequestParam Translators translator) throws IOException, ParseException
     {
         TranslatorAPI translatorAPI = TranslatorAPIFactory.getTranslatorAPI(translator.name(), token);
         String translation = translatorAPI.translate(text.getText(), text.getLanguage().getFrom(), text.getLanguage().getTo());
@@ -48,7 +58,9 @@ public class TranslatorController
         return new ResponseEntity<>(translation, HttpStatus.valueOf(code));
     }
 
-    /* Translators */
+    /** Available Translators.
+     *  {@link #Microsoft}
+     */
     public enum Translators {
         Microsoft;
     }
