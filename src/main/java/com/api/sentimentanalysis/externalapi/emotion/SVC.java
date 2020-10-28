@@ -5,11 +5,11 @@ import org.json.simple.JSONObject;
 
 import java.io.IOException;
 
-/** This class contains a method to execute the sentiment analysis with BERT model.
+/** This class contains a method to execute the sentiment analysis with SVC model.
  *
  * @author Ariadna de Arriba
  */
-public class BERT implements EmotionAnalysisAPI
+public class SVC implements EmotionAnalysisAPI
 {
     private String apiKey;
     private String host = "http://127.0.0.1:5000/api/v1/";
@@ -18,12 +18,12 @@ public class BERT implements EmotionAnalysisAPI
      * Constructor.
      * @param apiKey Api-key to authorize the method.
      */
-    public BERT(String apiKey)
+    public SVC(String apiKey)
     {
         this.apiKey = apiKey;
     }
 
-    /** Make a request to BERT for sentiment analysis.
+    /** Make a request to SVC model for sentiment analysis.
      *
      * @param text Text to analyze.
      * @return Returns a string that contains a json with each of six emotions weighted.
