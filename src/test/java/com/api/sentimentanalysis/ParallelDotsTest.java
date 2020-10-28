@@ -29,8 +29,8 @@ public class ParallelDotsTest
         ParallelDots parallelDots = new ParallelDots("hMHL3owGxJxbn6h6RQtCEyscYchzejmhVnPkdKoNax8");
         String text = "I am trying to imagine you with a personality";
 
-        String emotion = parallelDots.emotion(text);
-        String expected = "{\"emotion\":{\"happy\":0.999943,\"sad\":0.000003,\"angry\":0.000001,\"fear\":0.000012,\"excited\":0.000022,\"indifferent\":0.000018}}";
+        String emotion = parallelDots.getEmotion(text);
+        String expected = "{\"getEmotion\":{\"happy\":0.999943,\"sad\":0.000003,\"angry\":0.000001,\"fear\":0.000012,\"excited\":0.000022,\"indifferent\":0.000018}}";
 
         assertEquals(emotion, expected);
     }
@@ -46,6 +46,6 @@ public class ParallelDotsTest
     public void emotionExceptionTest()
     {
         ParallelDots parallelDots = new ParallelDots(null);
-        assertThrows(NullPointerException.class, () -> parallelDots.emotion("Text to analyze"));
+        assertThrows(NullPointerException.class, () -> parallelDots.getEmotion("Text to analyze"));
     }
 }

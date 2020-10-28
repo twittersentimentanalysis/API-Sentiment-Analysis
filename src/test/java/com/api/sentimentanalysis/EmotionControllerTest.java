@@ -28,7 +28,7 @@ public class EmotionControllerTest
         TextToAnalyze text = new TextToAnalyze();
         text.setText("text");
 
-        mvc.perform(post("/api/emotion")
+        mvc.perform(post("/api/getEmotion")
             .contentType(MediaType.APPLICATION_JSON)
             .content(new ObjectMapper().writeValueAsString(text)))
             .andExpect(status().isOk());
