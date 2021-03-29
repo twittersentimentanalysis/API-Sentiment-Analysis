@@ -1,7 +1,7 @@
 package com.api.sentimentanalysis;
 
-import com.api.sentimentanalysis.externalapi.EmotionAnalysisAPI;
-import com.api.sentimentanalysis.externalapi.EmotionAnalysisAPIFactory;
+import com.api.sentimentanalysis.externalapi.emotion.EmotionAnalysisAPI;
+import com.api.sentimentanalysis.externalapi.emotion.EmotionAnalysisAPIFactory;
 import org.junit.Assert;
 import org.junit.Test;
 

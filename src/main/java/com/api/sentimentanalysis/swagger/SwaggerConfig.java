@@ -11,11 +11,17 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-
+/** Swagger configuration class.
+ *
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig
 {
+    /** Method to configure swagger.
+     *
+     * @return Returns a Docket.
+     */
     @Bean
     public Docket api()
     {
@@ -28,6 +34,10 @@ public class SwaggerConfig
                 .apiInfo(apiInfo());
     }
 
+    /** Method to configure API information.
+     *
+     * @return Returns an instance of ApiInfo.
+     */
     private ApiInfo apiInfo()
     {
         return new ApiInfoBuilder()
@@ -38,4 +48,5 @@ public class SwaggerConfig
                 .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
                 .build();
     }
+
 }
