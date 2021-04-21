@@ -9,14 +9,15 @@
 
 A RESTFul API for Sentiment Analysis in Spanish.
 
-## How to run
-1. Clone this project to a local folder
+## How to run 
+### Local
+1. Clone this project to a local folder and go to root folder
 
-   `git clone https://github.com/aridearriba/API-Sentiment-Analysis.git`
+   `git clone https://github.com/twittersentimentanalysis/API-Sentiment-Analysis.git`
 
 2. Build the Spring Boot project with Maven
 
-    `mvn install`
+    `mvn clean install`
     
 3. Run the project
 
