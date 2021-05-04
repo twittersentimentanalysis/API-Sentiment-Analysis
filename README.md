@@ -35,10 +35,12 @@ A RESTFul API for Sentiment Analysis in Spanish.
 
     `mvn clean package`
     
-3. Go to http://localhost:8080/manager/html
+3. Run Tomcat server (you can download it [here](https://tomcat.apache.org/download-80.cgi))
 
-4. Load generated WAR file into section `Deploy > WAR file to deploy` and click on `Deploy`
+4. Go to http://localhost:8080/manager/html
+
+5. Load generated WAR file into section `Deploy > WAR file to deploy` and click on `Deploy`
 
     > *By default generated WAR file is saved on target folder in the root project folder*
 
-5. Go to http://localhost:8080/sentiment-analysis-api/swagger-ui.html and test the API
+6. Go to http://localhost:8080/sentiment-analysis-api/swagger-ui.html and test the API
