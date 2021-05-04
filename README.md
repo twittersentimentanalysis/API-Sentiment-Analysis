@@ -25,3 +25,20 @@ A RESTFul API for Sentiment Analysis in Spanish.
     
 4. Go to http://localhost:8080/swagger-ui.html and test the API
 
+
+### Tomcat
+1. Clone this project to a local folder and go to root folder
+
+   `git clone https://github.com/twittersentimentanalysis/API-Sentiment-Analysis.git`
+
+2. Build the Spring Boot project with Maven to generate a WAR file
+
+    `mvn clean package`
+    
+3. Go to http://localhost:8080/manager/html
+
+4. Load generated WAR file into section "Deploy > WAR file to deploy" and click on "Deploy"
+
+    > *By default generated WAR file is saved on `target` folder in the root project folder*
+
+5. Go to http://localhost:8080/sentiment-analysis-api/swagger-ui.html and test the API
