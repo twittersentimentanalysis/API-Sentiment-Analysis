@@ -12,15 +12,18 @@ import java.io.IOException;
 public class BERT implements EmotionAnalysisAPI
 {
     private String apiKey;
+    private Boolean bert;
     private String host = "http://127.0.0.1:5000/api/v1/";
 
     /**
      * Constructor.
      * @param apiKey Api-key to authorize the method.
+     * @param bert Boolean to indicate using bert multilingual or beto model.
      */
-    public BERT(String apiKey)
+    public BERT(String apiKey, Boolean bert)
     {
         this.apiKey = apiKey;
+        this.bert = bert;
     }
 
     /** Make a request to BERT for sentiment analysis.
@@ -39,6 +42,7 @@ public class BERT implements EmotionAnalysisAPI
 
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("text", text);
+            jsonObject.put("bert", bert);
             String json = jsonObject.toString();
 
             RequestBody requestBody = RequestBody.create(
