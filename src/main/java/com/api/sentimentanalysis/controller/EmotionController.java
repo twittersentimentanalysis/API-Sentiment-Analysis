@@ -67,6 +67,7 @@ public class EmotionController
     public enum Tools {
         ParallelDots,
         BERT,
+        BETO,
         SVC;
     }
 }

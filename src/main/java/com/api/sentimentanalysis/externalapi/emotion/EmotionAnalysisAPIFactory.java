@@ -15,7 +15,8 @@ public class EmotionAnalysisAPIFactory
     public static EmotionAnalysisAPI getEmotionAnalysisAPI(String tool, String apiKey)
     {
         if ("ParallelDots".equalsIgnoreCase(tool)) return new ParallelDots(apiKey);
-        if ("BERT".equalsIgnoreCase(tool)) return new BERT(apiKey);
+        if ("BERT".equalsIgnoreCase(tool)) return new BERT(apiKey, true);
+        if ("BETO".equalsIgnoreCase(tool)) return new BERT(apiKey, false);
         if ("SVC".equalsIgnoreCase(tool)) return new SVC(apiKey);
         throw new NullPointerException("No api with this name");
     }
