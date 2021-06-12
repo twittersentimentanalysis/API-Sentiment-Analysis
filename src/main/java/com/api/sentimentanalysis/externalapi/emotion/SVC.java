@@ -4,6 +4,7 @@ import okhttp3.*;
 import org.json.simple.JSONObject;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 /** This class contains a method to execute the sentiment analysis with SVC model.
  *
@@ -12,7 +13,7 @@ import java.io.IOException;
 public class SVC implements EmotionAnalysisAPI
 {
     private String apiKey;
-    private String host = "http://127.0.0.1:5000/api/v1/";
+    private String host = "http://127.0.0.1:6232/svc/v1/";
 
     /**
      * Constructor.
@@ -35,7 +36,11 @@ public class SVC implements EmotionAnalysisAPI
         if (this.apiKey != null)
         {
             String url = host + "emotion";
-            OkHttpClient client = new OkHttpClient();
+            OkHttpClient client = new OkHttpClient.Builder()
+                    .connectTimeout(20, TimeUnit.SECONDS)
+                    .writeTimeout(10, TimeUnit.SECONDS)
+                    .readTimeout(30, TimeUnit.SECONDS)
+                    .build();
 
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("text", text);

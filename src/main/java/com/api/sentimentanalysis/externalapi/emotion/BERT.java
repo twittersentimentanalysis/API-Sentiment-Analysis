@@ -4,6 +4,7 @@ import okhttp3.*;
 import org.json.simple.JSONObject;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 /** This class contains a method to execute the sentiment analysis with BERT model.
  *
@@ -13,7 +14,7 @@ public class BERT implements EmotionAnalysisAPI
 {
     private String apiKey;
     private Boolean bert;
-    private String host = "http://127.0.0.1:5000/api/v1/";
+    private String host = "http://127.0.0.1:6231/bert/v1/";
 
     /**
      * Constructor.
@@ -38,7 +39,11 @@ public class BERT implements EmotionAnalysisAPI
         if (this.apiKey != null)
         {
             String url = host + "emotion";
-            OkHttpClient client = new OkHttpClient();
+            OkHttpClient client = new OkHttpClient.Builder()
+                .connectTimeout(20, TimeUnit.SECONDS)
+                .writeTimeout(10, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
+                .build();
 
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("text", text);
@@ -56,6 +61,7 @@ public class BERT implements EmotionAnalysisAPI
                     .build();
 
             Response response = client.newCall(request).execute();
+            System.out.println(response);
             return response.body().string();
         } else
         {
