@@ -54,6 +54,7 @@ public class Microsoft implements TranslatorAPI
         Request request = new Request.Builder()
                 .url(url).post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", apiKey)
+                .addHeader("Ocp-Apim-Subscription-Region", "westeurope")
                 .addHeader("Content-type", "application/json").build();
 
         Response response = client.newCall(request).execute();
