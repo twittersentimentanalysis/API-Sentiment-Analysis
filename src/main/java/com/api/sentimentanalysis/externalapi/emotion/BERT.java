@@ -14,7 +14,7 @@ public class BERT implements EmotionAnalysisAPI
 {
     private String apiKey;
     private Boolean bert;
-    private String host = "http://127.0.0.1:6231/bert/v1/";
+    private String host = "http://0.0.0.0:6231/bert/v1/";
 
     /**
      * Constructor.

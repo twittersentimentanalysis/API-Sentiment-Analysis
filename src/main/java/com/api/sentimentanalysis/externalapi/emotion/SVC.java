@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class SVC implements EmotionAnalysisAPI
 {
     private String apiKey;
-    private String host = "http://127.0.0.1:6232/svc/v1/";
+    private String host = "http://0.0.0.0:6232/svc/v1/";
 
     /**
      * Constructor.
