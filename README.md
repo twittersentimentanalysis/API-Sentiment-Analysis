@@ -40,3 +40,7 @@ http://gessi-sw.essi.upc.edu:8080/sentiment-analysis-api/swagger-ui.html
     > *By default generated WAR file is saved on target folder in the root project folder*
 
 6. Go to http://localhost:8080/sentiment-analysis-api/swagger-ui.html and test the API
+
+
+
+***Note: File `src/main/resources/config.properties` can be modified at anytime to point to localhost or gessi endpoint.*
