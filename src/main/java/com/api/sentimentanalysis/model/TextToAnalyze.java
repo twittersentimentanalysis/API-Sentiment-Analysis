@@ -11,9 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
 public class TextToAnalyze
 {
     @ApiModelProperty ( notes = "text",
-                        example = "In a statement issued with France and UN chief António Guterres on Saturday, China committed to \"update\" " +
-                                    "its climate target \"in a manner representing a progression beyond the current one\".  It also vowed to publish " +
-                                    "a long term decarbonisation strategy by next year.")
+                        example = "Este año ha sido muy duro... A ver cuándo volvemos a la normalidad de una vez 😭")
     String text;
 
     /** Getter for text to analyze.

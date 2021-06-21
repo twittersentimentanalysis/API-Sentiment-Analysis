@@ -46,7 +46,7 @@ public class EmotionController
                     @ApiResponse(code = 429, message = "Too Many Requests"),        @ApiResponse(code = 406, message = "Not Acceptable")
             })
     public ResponseEntity<String> getEmotion(@ApiParam( name = "Texto", required = true,
-                                                        value = "Texto a analizar (versión de prueba - sólo para texto en inglés)")
+                                                        value = "Texto a analizar")
                                              @RequestBody TextToAnalyze text,
                                              @RequestHeader(name="Authorization",required = true) String token,
                                              @RequestParam Tools tool) throws IOException, ParseException
