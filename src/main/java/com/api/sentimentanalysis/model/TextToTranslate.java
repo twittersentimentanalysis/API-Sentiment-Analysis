@@ -11,9 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
 public class TextToTranslate
 {
     @ApiModelProperty ( notes = "text",
-            example = "In a statement issued with France and UN chief António Guterres on Saturday, China committed to \"update\" " +
-                    "its climate target \"in a manner representing a progression beyond the current one\".  It also vowed to publish " +
-                    "a long term decarbonisation strategy by next year.")
+            example = "Covid19 sucks but during this year I've lived moments I'll never forget, it's helped me a lot in my personal growth")
     String text;
 
     @ApiModelProperty ( notes = "language")
