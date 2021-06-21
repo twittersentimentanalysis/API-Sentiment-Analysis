@@ -1,9 +1,11 @@
 package com.api.sentimentanalysis.externalapi.emotion;
 
+import com.api.sentimentanalysis.config.PropertiesConfig;
 import okhttp3.*;
 import org.json.simple.JSONObject;
 
 import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 /** This class contains a method to execute the sentiment analysis with SVC model.
@@ -13,7 +15,8 @@ import java.util.concurrent.TimeUnit;
 public class SVC implements EmotionAnalysisAPI
 {
     private String apiKey;
-    private String host = "http://0.0.0.0:6232/svc/v1/";
+    private final Properties properties = PropertiesConfig.readProperties();
+    private final String baseUrl = properties.getProperty("host") + ":6232/svc/v1/";
 
     /**
      * Constructor.
@@ -35,7 +38,7 @@ public class SVC implements EmotionAnalysisAPI
     {
         if (this.apiKey != null)
         {
-            String url = host + "emotion";
+            String url = baseUrl + "emotion";
             OkHttpClient client = new OkHttpClient.Builder()
                     .connectTimeout(20, TimeUnit.SECONDS)
                     .writeTimeout(10, TimeUnit.SECONDS)
