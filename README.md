@@ -1,6 +1,10 @@
 # API Sentiment Analysis
 A RESTFul API for Sentiment Analysis in Spanish.
 
+## Test
+http://gessi-sw.essi.upc.edu:8080/sentiment-analysis-api/swagger-ui.html
+
+
 ## How to run 
 ### Local
 1. Clone this project to a local folder and go to root folder
