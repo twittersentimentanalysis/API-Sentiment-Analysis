@@ -1,9 +1,11 @@
 package com.api.sentimentanalysis.externalapi.emotion;
 
+import com.api.sentimentanalysis.config.PropertiesConfig;
 import okhttp3.*;
 import org.json.simple.JSONObject;
 
 import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 /** This class contains a method to execute the sentiment analysis with BERT model.
@@ -14,7 +16,8 @@ public class BERT implements EmotionAnalysisAPI
 {
     private String apiKey;
     private Boolean bert;
-    private String host = "http://0.0.0.0:6231/bert/v1/";
+    private final Properties properties = PropertiesConfig.readProperties();
+    private final String baseUrl = properties.getProperty("host") + ":6231/bert/v1/";
 
     /**
      * Constructor.
@@ -38,7 +41,7 @@ public class BERT implements EmotionAnalysisAPI
     {
         if (this.apiKey != null)
         {
-            String url = host + "emotion";
+            String url = baseUrl + "emotion";
             OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(20, TimeUnit.SECONDS)
                 .writeTimeout(10, TimeUnit.SECONDS)
