@@ -1,0 +1,6 @@
+com.api.sentimentanalysis
+com.api.sentimentanalysis.controller
+com.api.sentimentanalysis.externalapi.emotion
+com.api.sentimentanalysis.externalapi.translator
+com.api.sentimentanalysis.model
+com.api.sentimentanalysis.config
