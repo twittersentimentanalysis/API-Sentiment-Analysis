@@ -1,9 +1,11 @@
 # API Sentiment Analysis
 A RESTFul API for Sentiment Analysis in Spanish.
 
+## Documentation
+https://twittersentimentanalysis.github.io/API-Sentiment-Analysis/javadoc/index.html
+
 ## Test
 http://gessi-sw.essi.upc.edu:8080/sentiment-analysis-api/swagger-ui.html
-
 
 ## How to run 
 ### Local
