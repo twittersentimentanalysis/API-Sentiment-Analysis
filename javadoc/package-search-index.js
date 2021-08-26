@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.api.sentimentanalysis"},{"l":"com.api.sentimentanalysis.controller"},{"l":"com.api.sentimentanalysis.externalapi.emotion"},{"l":"com.api.sentimentanalysis.externalapi.translator"},{"l":"com.api.sentimentanalysis.model"},{"l":"com.api.sentimentanalysis.swagger"}]
