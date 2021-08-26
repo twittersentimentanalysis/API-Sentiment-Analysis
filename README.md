@@ -44,3 +44,20 @@ http://gessi-sw.essi.upc.edu:8080/sentiment-analysis-api/swagger-ui.html
 
 
 ***Note: File `src/main/resources/config.properties` can be modified at anytime to point to localhost or gessi endpoint.*
+
+
+## Endpoints
+### Base URLs
+#### Localhost
+http://localhost:8080/api/
+#### GESSI Server
+http://gessi-sw.essi.upc.edu:8080/sentiment-analysis-api/
+
+### Path
+#### Translator
+`translator?translator=Microsoft`
+#### Sentiment analysis
+- BERT: `emotion?tool=BERT`
+- BETO: `emotion?tool=BETO`
+- SVC: `emotion?tool=SVC`
+- ParallelDots: `emotion?tool=ParallelDots`
